@@ -19,7 +19,6 @@
 package com.lessaosp.settings.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import android.app.Activity;
 import android.content.Context;
@@ -35,9 +34,6 @@ import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceCategory;
 import androidx.preference.PreferenceScreen;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.search.SearchIndexable;
-
 
 import android.provider.Settings;
 import com.android.settings.R;
@@ -50,19 +46,22 @@ public class LockScreenSettings extends SettingsPreferenceFragment implements
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
         addPreferencesFromResource(R.xml.lessaosp_settings_lockscreen);
+
+        ContentResolver resolver = getActivity().getContentResolver();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
+        Resources resources = getResources();
+
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+        ContentResolver resolver = getActivity().getContentResolver();
 
         return false;
     }
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LESS_SETTINGS;
+        return MetricsProto.MetricsEvent.LESS_SETTINGS;
     }
-
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lessaosp_settings_lockscreen);
 
 }

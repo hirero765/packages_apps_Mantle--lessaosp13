@@ -25,11 +25,7 @@ import androidx.preference.Preference;
 import androidx.preference.PreferenceScreen;
 import android.provider.Settings;
 
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.search.SearchIndexable;
-
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -46,7 +42,7 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LESS_SETTINGS;
+        return MetricsProto.MetricsEvent.LESS_SETTINGS;
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -54,7 +50,4 @@ public class NotificationSettings extends SettingsPreferenceFragment implements
 
         return false;
     }
-
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lessaosp_settings_notifications);
 }

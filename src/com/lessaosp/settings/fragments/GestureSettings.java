@@ -17,13 +17,9 @@
 package com.lessaosp.settings.fragments;
 
 import com.android.internal.logging.nano.MetricsProto;
-import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
 
 import android.os.Bundle;
 import com.android.settings.R;
-import com.android.settings.search.BaseSearchIndexProvider;
-import com.android.settingslib.search.SearchIndexable;
-
 
 import com.android.settings.SettingsPreferenceFragment;
 
@@ -38,10 +34,7 @@ public class GestureSettings extends SettingsPreferenceFragment {
 
     @Override
     public int getMetricsCategory() {
-        return MetricsEvent.LESS_SETTINGS;
+        return MetricsProto.MetricsEvent.LESS_SETTINGS;
     }
-
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider(R.xml.lessaosp_settings_gestures);
 
 }
